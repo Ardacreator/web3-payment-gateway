@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web3 Payment Gateway — Software License</title>
+
+  <!-- Tailwind (Play CDN, fine for a static front-end) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Ethers.js v6 (UMD build, browser global `ethers`) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
+
+  <style>
+    /* Subtle log fade + monospace feel */
+    .log-line { animation: fadeIn .25s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; } }
+  </style>
+</head>
+
+<body class="min-h-screen bg-neutral-950 text-neutral-200 antialiased flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md">
+
+    <!-- Card -->
+    <div class="rounded-2xl border border-neutral-800 bg-neutral-900/70 backdrop-blur shadow-2xl overflow-hidden">
+
+      <!-- Header -->
+      <div class="px-6 pt-6 pb-4 border-b border-neutral-800">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-sm font-bold">Ξ</div>
+            <span class="font-semibold tracking-tight">PayGate</span>
+          </div>
+          <span id="network-badge" class="text-xs px-2 py-1 rounded-full bg-neutral-800 text-neutral-400">Not connected</span>
+        </div>
+      </div>
+
+      <!-- Product -->
+      <div class="px-6 py-5">
+        <p class="text-xs uppercase tracking-wider text-neutral-500">You are paying for</p>
+        <h1 class="text-lg font-semibold mt-1">Software License — Pro Plan</h1>
+
+        <div class="mt-4 rounded-xl bg-neutral-950/60 border border-neutral-800 p-4">
+          <div class="flex items-baseline justify-between">
+            <span class="text-neutral-400 text-sm">Amount due</span>
+            <span id="amount-display" class="text-2xl font-bold tabular-nums">100.00 <span class="text-sm font-medium text-neutral-400" id="amount-symbol">USDC</span></span>
+          </div>
+          <p class="text-xs text-neutral-500 mt-1">Includes 1% network platform fee, split on-chain.</p>
+        </div>
+      </div>
+
+      <!-- Asset selector -->
+      <div class="px-6 pb-2">
+        <p class="text-xs uppercase tracking-wider text-neutral-500 mb-2">Pay with</p>
+        <div class="grid grid-cols-3 gap-2">
+          <button data-asset="USDC" class="asset-btn rounded-xl border border-indigo-500 bg-indigo-500/10 py-3 text-sm font-medium">USDC</button>
+          <button data-asset="ETH"  class="asset-btn rounded-xl border border-neutral-800 py-3 text-sm font-medium text-neutral-400 hover:border-neutral-600">ETH</button>
+          <button data-asset="BTC"  class="asset-btn rounded-xl border border-neutral-800 py-3 text-sm font-medium text-neutral-400 hover:border-neutral-600">BTC</button>
+        </div>
+        <p id="btc-note" class="hidden text-[11px] text-amber-500/80 mt-2 leading-snug">
+          BTC is settled as WBTC (ERC-20) so it can split on-chain. Native Bitcoin cannot run in a smart contract.
+        </p>
+      </div>
+
+      <!-- Actions -->
+      <div class="px-6 pt-4 pb-5 space-y-2">
+        <button id="connect-btn"
+          class="w-full rounded-xl bg-neutral-100 text-neutral-900 font-semibold py-3 hover:bg-white transition disabled:opacity-50">
+          Connect Web3 Wallet
+        </button>
+        <button id="pay-btn" disabled
+          class="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 font-semibold py-3 hover:opacity-90 transition disabled:opacity-40 disabled:cursor-not-allowed">
+          Authorize &amp; Pay Now
+        </button>
+      </div>
+
+      <!-- Status log -->
+      <div class="px-6 pb-6">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-xs uppercase tracking-wider text-neutral-500">System log</p>
+          <span class="h-2 w-2 rounded-full bg-emerald-500/70 animate-pulse"></span>
+        </div>
+        <div id="log"
+          class="h-32 overflow-y-auto rounded-xl bg-black/60 border border-neutral-800 p-3 font-mono text-[11px] leading-relaxed text-neutral-400 space-y-1">
+          <!-- log lines injected here -->
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center text-[11px] text-neutral-600 mt-4">
+      Non-custodial. Funds never touch a server. Powered by Ethers.js v6.
+    </p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

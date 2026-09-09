@@ -20,11 +20,11 @@ const CONFIG = {
   gatewayAddress: "0xb35f439837a65da290b80fe6a08b23ea1d408a49",
 
   // The merchant (seller) who receives 99%. For a demo this can be you.
-  merchantAddress: "0xYOUR_MERCHANT_ADDRESS",
+  merchantAddress: "0xf91151040AD4CA46BDAd171350B36DDF31161DB9",
 
   // The chain you deployed to. Example: Arbitrum One = 42161, Polygon = 137.
-  chainIdDecimal: 42161,
-  chainName: "Arbitrum One",
+  chainIdDecimal: 11155111,
+  chainName: "Sepolia",
 
   // Off-chain order reference (would normally be generated per order).
   orderId: "ORDER-PRO-0001",

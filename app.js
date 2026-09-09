@@ -17,7 +17,7 @@
  * ------------------------------------------------------------------------- */
 const CONFIG = {
   // Your deployed PaymentGateway address:
-  gatewayAddress: "0xYOUR_DEPLOYED_GATEWAY_ADDRESS",
+  gatewayAddress: "0xb35f439837a65da290b80fe6a08b23ea1d408a49",
 
   // The merchant (seller) who receives 99%. For a demo this can be you.
   merchantAddress: "0xYOUR_MERCHANT_ADDRESS",

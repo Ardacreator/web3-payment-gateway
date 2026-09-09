@@ -31,17 +31,17 @@ const CONFIG = {
 
   // Token contracts on the SAME chain as your gateway.
   // These examples are Arbitrum One mainnet addresses — verify before use.
-  tokens: {
+   tokens: {
     USDC: {
-      address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831", // USDC (Arbitrum)
+      address: "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238", // USDC (Sepolia testnet, Circle)
       decimals: 6,
       // Display price of the product in this asset:
-      price: "100",
+      price: "10",
     },
     WBTC: {
-      address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", // WBTC (Arbitrum)
-      decimals: 8,
-      price: "0.0015",
+      address: "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238", // Placeholder (no official WBTC on Sepolia); fix on mainnet
+      decimals: 6,
+      price: "10",
     },
   },
 

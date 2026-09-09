@@ -49,7 +49,7 @@ const CONFIG = {
   native: {
     symbol: "ETH",
     decimals: 18,
-    price: "0.03",
+    price: "0.001",
   },
 };
 
